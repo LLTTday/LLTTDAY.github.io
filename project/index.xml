@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on LLTT</title>
+    <link>https://LLTTDAY.github.io/project/</link>
+    <description>Recent content in Projects on LLTT</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://LLTTDAY.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bike Map</title>
+      <link>https://LLTTDAY.github.io/project/bikemap/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://LLTTDAY.github.io/project/bikemap/</guid>
+      <description>&lt;p&gt;OSM data served from PostGIS. Queried the database to select and symbolize features. Map shows bike routes of various types along with selected amenities. Topography and hydrography from the Puget Sound LIDAR Consortium and the US Geological Survey. Building outlines from OSM.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Canvass Maps</title>
+      <link>https://LLTTDAY.github.io/project/walkmap/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://LLTTDAY.github.io/project/walkmap/</guid>
+      <description>&lt;figure&gt;&lt;img class = &#34;postim&#34; src=&#34;https://LLTTDAY.github.io/img/portfolio/walkmap.jpg&#34; width = &#34;100%&#34;&gt;&lt;/figure&gt;
+
+&lt;p&gt;Example walk map produced for political campaigns. Shaded and numbered parcels indicate the locations of targeted voters. This format is an efficient way of orienting volunteers and communicating exactly where they need to go.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Middlefork Map</title>
+      <link>https://LLTTDAY.github.io/project/mf/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://LLTTDAY.github.io/project/mf/</guid>
+      <description>&lt;p&gt;Detail from map of the area around the Middlefork Snoqualmie valley in east King County, Washington.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>San Juan Islands Map</title>
+      <link>https://LLTTDAY.github.io/project/sji/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://LLTTDAY.github.io/project/sji/</guid>
+      <description>&lt;p&gt;Built in QGIS with data from NOAA, US Department of Agricutlure, San Juan County, Whatcom County, and Skagit County&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Turnout Visualization</title>
+      <link>https://LLTTDAY.github.io/project/turnout/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://LLTTDAY.github.io/project/turnout/</guid>
+      <description>&lt;figure&gt;&lt;img class = &#34;postim&#34; src=&#34;https://LLTTDAY.github.io/img/portfolio/turnout.jpg&#34; width = &#34;100%&#34;&gt;&lt;/figure&gt;
+
+&lt;p&gt;A plot of the distributions of about 70,000 measurements of voter turnout by precinct for 28 elections in King County, WA. Queried from an election results table containing 13,000,000 rows. Countywide mesaurements are symbolized in black, while measurements from precincts within the City of Seattle are symbolized in gray.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Voter&#39;s Edge</title>
+      <link>https://LLTTDAY.github.io/project/ve/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://LLTTDAY.github.io/project/ve/</guid>
+      <description>&lt;figure&gt;&lt;img class = &#34;postim&#34; src=&#34;https://LLTTDAY.github.io/img/portfolio/ve.png&#34; width = &#34;100%&#34;&gt;&lt;/figure&gt;
+
+&lt;p&gt;Was responsible for the contents of the backend databases used to provide address-customized ballots to millions of users of &lt;a href=&#34;https://votersedge.org&#34; target=&#34;_blank&#34;&gt;VotersEdge.org&lt;/a&gt;, a popular online voter guide application.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Election Atlas</title>
+      <link>https://LLTTDAY.github.io/project/atlas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://LLTTDAY.github.io/project/atlas/</guid>
+      <description>&lt;p&gt;A comprehensive atlas of electoral data. View it here: &lt;a href=&#34;https://atlas.lltt.co&#34; target=&#34;_blank&#34;&gt;https://atlas.lltt.co&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;introduction&#34;&gt;Introduction&lt;/h4&gt;
+
+&lt;p&gt;The Atlas of King County Politics is a comprehensive database of current and historical election results in King County, Washington. It organizes 15 years and 20 million rows of detailed results data, along with an apparatus of spatial data for analyzing, querying, and visualizing those results. The purpose of the project is to have cleaned and normalized historical data available for analysis that is timely and responsive to new questions in its domain and also provides a public facing front end for querying the spatial results of past elections. The Atlas relies on PostGIS, Python, JavaScript, and AWS.&lt;/p&gt;
+
+&lt;h5 id=&#34;election-results-data-format&#34;&gt;Election results data format&lt;/h5&gt;
+
+&lt;p&gt;&lt;img class = &#34;postim&#34; src=&#34;https://LLTTDAY.github.io/img/portfolio/edata.png&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Figure 1: Raw csv for single election&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The machine that counts ballots for the King County Department of Elections regards each observation of a vote for a candidate or a contest left blank on a given ballot as a distinct event. The reports generated and made public tabulates those observations by the precincts&amp;ndash;county defined voting areas&amp;ndash;from which ballots have been cast. Ballots themselves are anonymous, but they are marked, grouped, and counted by precinct. Each row of the county data file represents the number of times an indicated phenomenon was observed on ballots from an indicated precinct.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Figure 1&lt;/em&gt; contains the first few lines of one election results file, and shows the number of votes counted for each of the candidates listed under &amp;ldquo;CounterType&amp;rdquo; for the Attorney General&amp;rsquo;s race in the precinct of ADAIR. This database combines dozens of elections&amp;rsquo; results files into a single results table, and a series of other tables for accessing it and filtering it. Since 2015, precinct-level results have been released both for the counts announced on election night, typically about half the vote, and for the final official result. This contains both counts for elections where it is available.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
