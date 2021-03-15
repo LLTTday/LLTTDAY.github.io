@@ -36,21 +36,32 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://LLTTDAY.github.io/project/atlas/</guid>
-      <description>
-
-&lt;h4 id=&#34;introduction&#34;&gt;Introduction&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;introduction&#34;&gt;Introduction&lt;/h4&gt;
 &lt;p&gt;The Atlas of King County Politics is a comprehensive database of current and historical election results in King County, Washington. It organizes 15 years and 20 million rows of detailed results data, along with an apparatus of spatial data for analyzing, querying, and visualizing those results. The purpose of the project is to have cleaned and normalized historical data available for analysis that is timely and responsive to new questions in its domain and also provides a public facing front end for querying the spatial results of past elections. The Atlas relies on PostGIS, Python, JavaScript, and AWS.&lt;/p&gt;
-
 &lt;h5 id=&#34;election-results-data-format&#34;&gt;Election results data format&lt;/h5&gt;
-
-&lt;p&gt;&lt;img class = &#34;postim&#34; src=&#34;edata.png&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
-
+&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;&lt;em&gt;Figure 1: Raw csv for single election&lt;/em&gt;&lt;/p&gt;
-
 &lt;p&gt;The machine that counts ballots for the King County Department of Elections regards each observation of a vote for a candidate or a contest left blank on a given ballot as a distinct event. The reports generated and made public tabulates those observations by the precincts&amp;ndash;county defined voting areas&amp;ndash;from which ballots have been cast. Ballots themselves are anonymous, but they are marked, grouped, and counted by precinct. Each row of the county data file represents the number of times an indicated phenomenon was observed on ballots from an indicated precinct.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Figure 1&lt;/em&gt; contains the first few lines of one election results file, and shows the number of votes counted for each of the candidates listed under &amp;ldquo;CounterType&amp;rdquo; for the Attorney General&amp;rsquo;s race in the precinct of ADAIR. This database combines dozens of elections&amp;rsquo; results files into a single results table, and a series of other tables for accessing it and filtering it. Since 2015, precinct-level results have been released both for the counts announced on election night, typically about half the vote, and for the final official result. This contains both counts for elections where it is available.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Figure 1&lt;/em&gt; contains the first few lines of one election results file, and shows the number of votes counted for each of the candidates listed under &amp;ldquo;CounterType&amp;rdquo; for the Attorney General&amp;rsquo;s race in the precinct of ADAIR. This database combines dozens of elections&#39; results files into a single results table, and a series of other tables for accessing it and filtering it. Since 2015, precinct-level results have been released both for the counts announced on election night, typically about half the vote, and for the final official result. This contains both counts for elections where it is available.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Housing-Based Voter Turnout Modeling</title>
+      <link>https://LLTTDAY.github.io/project/tomodels/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://LLTTDAY.github.io/project/tomodels/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LiDAR Data</title>
+      <link>https://LLTTDAY.github.io/project/lidar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://LLTTDAY.github.io/project/lidar/</guid>
+      <description>&lt;p&gt;I have worked with LiDAR data in a variety of contexts, including developing elevation models for basemaps and viewshed analyses.&lt;/p&gt;
 </description>
     </item>
     
@@ -80,8 +91,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://LLTTDAY.github.io/project/turnout/</guid>
-      <description>&lt;figure&gt;&lt;img class = &#34;postim&#34; src=&#34;https://LLTTDAY.github.io/img/portfolio/turnout.jpg&#34; width = &#34;100%&#34;&gt;&lt;/figure&gt;
-
+      <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;A plot of the distributions of about 70,000 measurements of voter turnout by precinct for 28 elections in King County, WA. Queried from an election results table containing 13,000,000 rows. Countywide mesaurements are symbolized in black, while measurements from precincts within the City of Seattle are symbolized in gray.&lt;/p&gt;</description>
     </item>
     
@@ -91,7 +101,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://LLTTDAY.github.io/project/ve/</guid>
-      <description>&lt;p&gt;Was responsible for the contents of the backend databases used to provide address-customized ballots to millions of users of &lt;a href=&#34;https://votersedge.org&#34; target=&#34;_blank&#34;&gt;VotersEdge.org&lt;/a&gt;, a popular online voter guide application.&lt;/p&gt;
+      <description>&lt;p&gt;Was responsible for the contents of the backend databases used to provide address-customized ballots to millions of users of &lt;a href=&#34;https://votersedge.org&#34;&gt;VotersEdge.org&lt;/a&gt;, a popular online voter guide application.&lt;/p&gt;
 </description>
     </item>
     

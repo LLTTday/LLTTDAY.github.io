@@ -82,7 +82,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.9c30522bad81158dc84be350e637537f.css">
+  <link rel="stylesheet" href="/css/academic.min.70667ee2b16b7abb19d30af39296b1af.css">
 
   
 
@@ -105,6 +105,9 @@
     
   
   <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@llttday">
+  <meta property="twitter:creator" content="@llttday">
   
   <meta property="og:site_name" content="LLTT">
   <meta property="og:url" content="https://LLTTDAY.github.io/project/atlas/">
@@ -243,6 +246,50 @@
         
 
         <li class="nav-item">
+          <a class="nav-link " href="/signs"><span>Signs</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/routes"><span>Routes</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
           <a class="nav-link " href="/about"><span>About</span></a>
         </li>
 
@@ -297,7 +344,7 @@
   <h1 itemprop="name">Election Atlas</h1>
 
   
-  <p class="page-subtitle">A comprehensive atlas of electoral data. View it here: <a href="https://atlas.lltt.co" target="_blank">https://atlas.lltt.co</a>.</p>
+  <p class="page-subtitle">A comprehensive atlas of electoral data. View it here: <a href="https://atlas.lltt.co">https://atlas.lltt.co</a>.</p>
   
 
   
@@ -369,21 +416,13 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<h4 id="introduction">Introduction</h4>
-
+      <h4 id="introduction">Introduction</h4>
 <p>The Atlas of King County Politics is a comprehensive database of current and historical election results in King County, Washington. It organizes 15 years and 20 million rows of detailed results data, along with an apparatus of spatial data for analyzing, querying, and visualizing those results. The purpose of the project is to have cleaned and normalized historical data available for analysis that is timely and responsive to new questions in its domain and also provides a public facing front end for querying the spatial results of past elections. The Atlas relies on PostGIS, Python, JavaScript, and AWS.</p>
-
 <h5 id="election-results-data-format">Election results data format</h5>
-
-<p><img class = "postim" src="edata.png" width = "100%"></p>
-
+<!-- raw HTML omitted -->
 <p><em>Figure 1: Raw csv for single election</em></p>
-
 <p>The machine that counts ballots for the King County Department of Elections regards each observation of a vote for a candidate or a contest left blank on a given ballot as a distinct event. The reports generated and made public tabulates those observations by the precincts&ndash;county defined voting areas&ndash;from which ballots have been cast. Ballots themselves are anonymous, but they are marked, grouped, and counted by precinct. Each row of the county data file represents the number of times an indicated phenomenon was observed on ballots from an indicated precinct.</p>
-
-<p><em>Figure 1</em> contains the first few lines of one election results file, and shows the number of votes counted for each of the candidates listed under &ldquo;CounterType&rdquo; for the Attorney General&rsquo;s race in the precinct of ADAIR. This database combines dozens of elections&rsquo; results files into a single results table, and a series of other tables for accessing it and filtering it. Since 2015, precinct-level results have been released both for the counts announced on election night, typically about half the vote, and for the final official result. This contains both counts for elections where it is available.</p>
+<p><em>Figure 1</em> contains the first few lines of one election results file, and shows the number of votes counted for each of the candidates listed under &ldquo;CounterType&rdquo; for the Attorney General&rsquo;s race in the precinct of ADAIR. This database combines dozens of elections' results files into a single results table, and a series of other tables for accessing it and filtering it. Since 2015, precinct-level results have been released both for the counts announced on election night, typically about half the vote, and for the final official result. This contains both counts for elections where it is available.</p>
 
     </div>
 
@@ -476,7 +515,7 @@
     
     
     
-    <script src="/js/academic.min.ec1695421e45339a372651bdbca08617.js"></script>
+    <script src="/js/academic.min.8dfc17c4c6facad754548cdb60604f85.js"></script>
 
     
 
