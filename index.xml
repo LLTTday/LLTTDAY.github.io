@@ -1,165 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>LLTT</title>
-    <link>https://LLTTDAY.github.io/</link>
-    <description>Recent content on LLTT</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 14 Jan 2021 18:48:49 -0800</lastBuildDate>
-    
-	    <atom:link href="https://LLTTDAY.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title></title>
-      <link>https://LLTTDAY.github.io/signs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://LLTTDAY.github.io/signs/</guid>
-      <description>
-
-
-
-
-
-
-
-  
-  
-
-
-&lt;div class=&#34;gallery&#34;&gt;
-
-  
-  
-  
-  
-    
-    
-    
-    
-    
-  &lt;a data-fancybox=&#34;gallery-images&#34; href=&#34;https://LLTTDAY.github.io/signs/images/burgermaster.png&#34; &gt;
-  &lt;img src=&#34;https://LLTTDAY.github.io/signs/images/burgermaster_hufba2387292e48babbd4960fc1e210a70_14651350_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-  &lt;a data-fancybox=&#34;gallery-images&#34; href=&#34;https://LLTTDAY.github.io/signs/images/dicks_hamburgers.png&#34; &gt;
-  &lt;img src=&#34;https://LLTTDAY.github.io/signs/images/dicks_hamburgers_hu33c806c93c2992a3a74aef7f0fc5adec_17903772_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-  &lt;a data-fancybox=&#34;gallery-images&#34; href=&#34;https://LLTTDAY.github.io/signs/images/donut_house.png&#34; &gt;
-  &lt;img src=&#34;https://LLTTDAY.github.io/signs/images/donut_house_huf5a1371e86bd698c144273f4ca2f400e_12935704_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-  &lt;a data-fancybox=&#34;gallery-images&#34; href=&#34;https://LLTTDAY.github.io/signs/images/dream_fluff.png&#34; &gt;
-  &lt;img src=&#34;https://LLTTDAY.github.io/signs/images/dream_fluff_hu32bfb90848a7b615ed1cf9b600f57bcd_16273220_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-  &lt;a data-fancybox=&#34;gallery-images&#34; href=&#34;https://LLTTDAY.github.io/signs/images/hot_cake_house.png&#34; &gt;
-  &lt;img src=&#34;https://LLTTDAY.github.io/signs/images/hot_cake_house_hue235e537d5dc2917d09e4ecce7d03091_17839724_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-  &lt;a data-fancybox=&#34;gallery-images&#34; href=&#34;https://LLTTDAY.github.io/signs/images/huff_n_puff.png&#34; &gt;
-  &lt;img src=&#34;https://LLTTDAY.github.io/signs/images/huff_n_puff_hu44a62971a8c677a091c3130865223b1e_14415400_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-
-  
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Elliott Day</title>
-      <link>https://LLTTDAY.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://LLTTDAY.github.io/about/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m a Seattle-based data analyst, cartographer, and designer with experience in campaigns, local government, and nonprofit research. I enjoy helping resourceful teams make the most of data and exploring the connections between locations, decisions, and outcomes. I specialize in spatial data, Python, PostgreSQL, and open source tools.&lt;/p&gt;
-&lt;h5 id=&#34;contact&#34;&gt;Contact&lt;/h5&gt;
-&lt;p&gt;&lt;a href=&#34;mailto:elliott@lltt.co&#34;&gt;email&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/llttday&#34;&gt;twitter&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Posts</title>
-      <link>https://LLTTDAY.github.io/posts/</link>
-      <pubDate>Thu, 14 Jan 2021 18:48:49 -0800</pubDate>
-      
-      <guid>https://LLTTDAY.github.io/posts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Posts</title>
-      <link>https://LLTTDAY.github.io/post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://LLTTDAY.github.io/post/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>https://LLTTDAY.github.io/project/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://LLTTDAY.github.io/project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>https://LLTTDAY.github.io/projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://LLTTDAY.github.io/projects/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Routes</title>
-      <link>https://LLTTDAY.github.io/route/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://LLTTDAY.github.io/route/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Routes</title>
-      <link>https://LLTTDAY.github.io/routes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://LLTTDAY.github.io/routes/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLTT</title><link>https://LLTTDAY.github.io/</link><description>Recent content on LLTT</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 14 Jan 2021 18:48:49 -0800</lastBuildDate><atom:link href="https://LLTTDAY.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://LLTTDAY.github.io/signs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://LLTTDAY.github.io/signs/</guid><description>
+&lt;div class="gallery">
+&lt;a data-fancybox="gallery-images" href="https://LLTTDAY.github.io/signs/images/burgermaster.png" >
+&lt;img src="https://LLTTDAY.github.io/signs/images/burgermaster_hufba2387292e48babbd4960fc1e210a70_14651350_0x190_resize_lanczos_2.png" alt="">
+&lt;/a>
+&lt;a data-fancybox="gallery-images" href="https://LLTTDAY.github.io/signs/images/dicks_hamburgers.png" >
+&lt;img src="https://LLTTDAY.github.io/signs/images/dicks_hamburgers_hu33c806c93c2992a3a74aef7f0fc5adec_17903772_0x190_resize_lanczos_2.png" alt="">
+&lt;/a>
+&lt;a data-fancybox="gallery-images" href="https://LLTTDAY.github.io/signs/images/donut_house.png" >
+&lt;img src="https://LLTTDAY.github.io/signs/images/donut_house_huf5a1371e86bd698c144273f4ca2f400e_12935704_0x190_resize_lanczos_2.png" alt="">
+&lt;/a>
+&lt;a data-fancybox="gallery-images" href="https://LLTTDAY.github.io/signs/images/dream_fluff.png" >
+&lt;img src="https://LLTTDAY.github.io/signs/images/dream_fluff_hu32bfb90848a7b615ed1cf9b600f57bcd_16273220_0x190_resize_lanczos_2.png" alt="">
+&lt;/a>
+&lt;a data-fancybox="gallery-images" href="https://LLTTDAY.github.io/signs/images/hot_cake_house.png" >
+&lt;img src="https://LLTTDAY.github.io/signs/images/hot_cake_house_hue235e537d5dc2917d09e4ecce7d03091_17839724_0x190_resize_lanczos_2.png" alt="">
+&lt;/a>
+&lt;a data-fancybox="gallery-images" href="https://LLTTDAY.github.io/signs/images/huff_n_puff.png" >
+&lt;img src="https://LLTTDAY.github.io/signs/images/huff_n_puff_hu44a62971a8c677a091c3130865223b1e_14415400_0x190_resize_lanczos_2.png" alt="">
+&lt;/a>
+&lt;/div></description></item><item><title>Elliott Day</title><link>https://LLTTDAY.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://LLTTDAY.github.io/about/</guid><description>&lt;p>I&amp;rsquo;m a Seattle-based data analyst, cartographer, and designer with experience in campaigns, local government, and nonprofit research. I enjoy helping resourceful teams make the most of data and exploring the connections between locations, decisions, and outcomes. I specialize in spatial data, Python, PostgreSQL, and open source tools.&lt;/p>
+&lt;h5 id="contact">Contact&lt;/h5>
+&lt;p>&lt;a href="mailto:elliott@lltt.co">email&lt;/a> or &lt;a href="https://twitter.com/llttday">twitter&lt;/a>&lt;/p></description></item><item><title>Posts</title><link>https://LLTTDAY.github.io/posts/</link><pubDate>Thu, 14 Jan 2021 18:48:49 -0800</pubDate><guid>https://LLTTDAY.github.io/posts/</guid><description/></item><item><title>Posts</title><link>https://LLTTDAY.github.io/post/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://LLTTDAY.github.io/post/</guid><description/></item><item><title>Projects</title><link>https://LLTTDAY.github.io/project/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://LLTTDAY.github.io/project/</guid><description/></item><item><title>Projects</title><link>https://LLTTDAY.github.io/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://LLTTDAY.github.io/projects/</guid><description/></item><item><title>Routes</title><link>https://LLTTDAY.github.io/route/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://LLTTDAY.github.io/route/</guid><description/></item><item><title>Routes</title><link>https://LLTTDAY.github.io/routes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://LLTTDAY.github.io/routes/</guid><description/></item></channel></rss>

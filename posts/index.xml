@@ -1,185 +1,152 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on LLTT</title>
-    <link>https://LLTTDAY.github.io/posts/</link>
-    <description>Recent content in Posts on LLTT</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 14 Jan 2021 18:48:49 -0800</lastBuildDate>
-    
-	    <atom:link href="https://LLTTDAY.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title></title>
-      <link>https://LLTTDAY.github.io/posts/posts/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://LLTTDAY.github.io/posts/posts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Observations on Voter Turnout for Municipal Elections in King County Cities</title>
-      <link>https://LLTTDAY.github.io/posts/odd/</link>
-      <pubDate>Thu, 14 Jan 2021 18:48:49 -0800</pubDate>
-      
-      <guid>https://LLTTDAY.github.io/posts/odd/</guid>
-      <description>&lt;p&gt;In the State of Washington, elections for municipal offices are held in odd-numbered years.&lt;/p&gt;
-&lt;h3 id=&#34;standard-deviation&#34;&gt;Standard Deviation&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;City&lt;/th&gt;
-&lt;th style=&#34;text-align:right&#34;&gt; σ Odd Year Influence&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Des Moines&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.120246&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Redmond&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.098814&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Seattle&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.097211&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Burien&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0922362&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Federal Way&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0861523&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Issaquah&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0809746&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Kent&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0794162&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Mercer Island&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0756233&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Bellevue&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0755659&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Auburn&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.072563&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Woodinville&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0682018&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Kirkland&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0664555&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Tukwila&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0660444&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Shoreline&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0642443&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Newcastle&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0635957&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Seatac&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0611862&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Bothell&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0585666&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Renton&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0577767&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Maple Valley&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0570163&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Kenmore&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0565913&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Lake Forest Park&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0490395&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Sammamish&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.047575&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Pacific&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0474834&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;North Bend&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0455643&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Enumclaw&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0429373&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Normandy Park&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0389984&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Snoqualmie&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0383544&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Covington&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0380198&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Duvall&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0290837&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Black Diamond&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0277653&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Medina&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0217892&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Algona&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0213422&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Clyde Hill&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.020704&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Carnation&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0116465&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Yarrow Point&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;0.0111296&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on LLTT</title><link>https://LLTTDAY.github.io/posts/</link><description>Recent content in Posts on LLTT</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 14 Jan 2021 18:48:49 -0800</lastBuildDate><atom:link href="https://LLTTDAY.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://LLTTDAY.github.io/posts/posts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://LLTTDAY.github.io/posts/posts/</guid><description/></item><item><title>Observations on Voter Turnout for Municipal Elections in King County Cities</title><link>https://LLTTDAY.github.io/posts/odd/</link><pubDate>Thu, 14 Jan 2021 18:48:49 -0800</pubDate><guid>https://LLTTDAY.github.io/posts/odd/</guid><description>&lt;p>In the State of Washington, elections for municipal offices are held in odd-numbered years.&lt;/p>
+&lt;h3 id="standard-deviation">Standard Deviation&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">City&lt;/th>
+&lt;th style="text-align:right"> σ Odd Year Influence&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">Des Moines&lt;/td>
+&lt;td style="text-align:right">0.120246&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Redmond&lt;/td>
+&lt;td style="text-align:right">0.098814&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Seattle&lt;/td>
+&lt;td style="text-align:right">0.097211&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Burien&lt;/td>
+&lt;td style="text-align:right">0.0922362&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Federal Way&lt;/td>
+&lt;td style="text-align:right">0.0861523&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Issaquah&lt;/td>
+&lt;td style="text-align:right">0.0809746&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Kent&lt;/td>
+&lt;td style="text-align:right">0.0794162&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Mercer Island&lt;/td>
+&lt;td style="text-align:right">0.0756233&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Bellevue&lt;/td>
+&lt;td style="text-align:right">0.0755659&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Auburn&lt;/td>
+&lt;td style="text-align:right">0.072563&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Woodinville&lt;/td>
+&lt;td style="text-align:right">0.0682018&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Kirkland&lt;/td>
+&lt;td style="text-align:right">0.0664555&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Tukwila&lt;/td>
+&lt;td style="text-align:right">0.0660444&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Shoreline&lt;/td>
+&lt;td style="text-align:right">0.0642443&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Newcastle&lt;/td>
+&lt;td style="text-align:right">0.0635957&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Seatac&lt;/td>
+&lt;td style="text-align:right">0.0611862&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Bothell&lt;/td>
+&lt;td style="text-align:right">0.0585666&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Renton&lt;/td>
+&lt;td style="text-align:right">0.0577767&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Maple Valley&lt;/td>
+&lt;td style="text-align:right">0.0570163&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Kenmore&lt;/td>
+&lt;td style="text-align:right">0.0565913&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Lake Forest Park&lt;/td>
+&lt;td style="text-align:right">0.0490395&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Sammamish&lt;/td>
+&lt;td style="text-align:right">0.047575&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Pacific&lt;/td>
+&lt;td style="text-align:right">0.0474834&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">North Bend&lt;/td>
+&lt;td style="text-align:right">0.0455643&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Enumclaw&lt;/td>
+&lt;td style="text-align:right">0.0429373&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Normandy Park&lt;/td>
+&lt;td style="text-align:right">0.0389984&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Snoqualmie&lt;/td>
+&lt;td style="text-align:right">0.0383544&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Covington&lt;/td>
+&lt;td style="text-align:right">0.0380198&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Duvall&lt;/td>
+&lt;td style="text-align:right">0.0290837&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Black Diamond&lt;/td>
+&lt;td style="text-align:right">0.0277653&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Medina&lt;/td>
+&lt;td style="text-align:right">0.0217892&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Algona&lt;/td>
+&lt;td style="text-align:right">0.0213422&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Clyde Hill&lt;/td>
+&lt;td style="text-align:right">0.020704&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Carnation&lt;/td>
+&lt;td style="text-align:right">0.0116465&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Yarrow Point&lt;/td>
+&lt;td style="text-align:right">0.0111296&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>
