@@ -29,9 +29,9 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: `mapbox://styles/llttday/ckmb2idf39c2017tfyrsfoyyk`,
-            bounds: bounds,
+            pitch: 70,
             minBounds: bounds,
-            pitch: 40
+            zoom: 11
         });
         map.on('load', function () {
             map.addSource('routes', {
