@@ -1,6 +1,7 @@
 <html><head>
     <title>Route Map</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.1.1/mapbox-gl.js"></script>
+	<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.1.1/mapbox-gl.css">
 
     <style type="text/css">
@@ -18,35 +19,36 @@
     </style>
 </head>
 <body>
+
     <div id="map"></div>
     <script type="text/javascript">
 
-        // Get your own API Key on https://myprojects.geoapify.com
         mapboxgl.accessToken = "pk.eyJ1IjoibGx0dGRheSIsImEiOiJja2RrbGhwazUwY2EzMnl0MnFxdXI1MnI5In0.3mcdJCpgz-15EqRGGnxEoA";
 
+        var bounds = [[-122.66259, 37.79269, ], [-122.22608, 38.28203]]
         var map = new mapboxgl.Map({
             container: 'map',
             style: `mapbox://styles/llttday/ckmb2idf39c2017tfyrsfoyyk`,
+            center: [-122.43773, 37.94040],
+            pitch: 55,
+            zoom: 11
         });
         map.on('load', function () {
-            map.addSource('mapbox-terrain', {
-            type: 'vector',
-            url: 'mapbox://mapbox.mapbox-terrain-v2'
+            map.addSource('routes', {
+            	type: 'geojson',
+				data: 'northbay.geojson'
             });
             map.addLayer({
-            'id': 'terrain-data',
-            'type': 'line',
-            'source': 'mapbox-terrain',
-            'source-layer': 'contour',
-            'layout': {
-            'line-join': 'round',
-            'line-cap': 'round'
-            },
-            'paint': {
-            'line-color': '#ff69b4',
-            'line-width': 1
-            }
-            });
-        map.addControl(new mapboxgl.NavigationControl());
-    </script>
+            'id': 'route1',
+			'type': 'line',
+			'source': 'routes',
+			'layout': {
+			'line-join': 'round',
+			'line-cap': 'round'
+			},
+			'paint': {
+			'line-color': '#FE4D02',
+			'line-width': 3
+			}
+			})});</script>
 </body></html>
