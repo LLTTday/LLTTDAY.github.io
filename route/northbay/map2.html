@@ -25,12 +25,12 @@
 
         mapboxgl.accessToken = "pk.eyJ1IjoibGx0dGRheSIsImEiOiJja2RrbGhwazUwY2EzMnl0MnFxdXI1MnI5In0.3mcdJCpgz-15EqRGGnxEoA";
 
-        var bounds = [[-122.66259, 37.79269], [-122.22608, 38.28203]]
+        var bounds = [[-122.66259, 37.79269, ], [-122.22608, 38.28203]]
         var map = new mapboxgl.Map({
             container: 'map',
             style: `mapbox://styles/llttday/ckmb2idf39c2017tfyrsfoyyk`,
-            pitch: 70,
-            minBounds: bounds,
+            center: [-122.43773, 37.94040],
+            pitch: 55,
             zoom: 11
         });
         map.on('load', function () {
