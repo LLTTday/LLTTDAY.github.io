@@ -1,8 +1,8 @@
 <html><head>
     <title>Route Map</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.1.1/mapbox-gl.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.2.2/mapbox-gl.js"></script>
 	<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.1.1/mapbox-gl.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.2.2/mapbox-gl.css">
 
     <style type="text/css">
         body {
@@ -25,14 +25,13 @@
 
         mapboxgl.accessToken = "pk.eyJ1IjoibGx0dGRheSIsImEiOiJja2RrbGhwazUwY2EzMnl0MnFxdXI1MnI5In0.3mcdJCpgz-15EqRGGnxEoA";
 
-        var bounds = [[-122.66259, 37.79269, ], [-122.22608, 38.28203]]
         var map = new mapboxgl.Map({
             container: 'map',
             style: `mapbox://styles/llttday/ckmb2idf39c2017tfyrsfoyyk`,
 			pitch: 60,
-            bounds: bounds,
+            bounds: [[-122.66259, 37.79269, ], [-122.22608, 38.28203]],
 			fitboundsoptions: {
-padding: {top: -300, bottom:25, left: 25, right: 25}
+padding: {top: 0, bottom: 25, left: 25, right: 25}
 }
             });
         map.on('load', function () {
