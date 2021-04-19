@@ -29,7 +29,10 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: `mapbox://styles/llttday/ckmb2idf39c2017tfyrsfoyyk`,
-            center: [-122.43773, 37.94040],
+            bounds: bounds,
+			fitboundsoptions: {
+padding: {top: 10, bottom:25, left: 15, right: 5}
+},
             pitch: 55,
             zoom: 11
         });
