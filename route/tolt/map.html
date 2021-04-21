@@ -1,0 +1,92 @@
+<html><head>
+    <title>Route Map</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.2.0/mapbox-gl.js"></script>
+	<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.2.0/mapbox-gl.css">
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<style>
+.map-overlay {
+position: absolute;
+width: 100%;
+top: 30;
+}
+ 
+.map-overlay .map-overlay-inner {
+	top: 30;
+}
+ 
+.map-overlay h2 {
+font-family: 'Acme';
+font-size: 36px;
+text-shadow: 1px 1px 1px gray;
+text-align: center;
+display: block;
+}
+
+.map-overlay h4 {
+font-family: 'Acme';
+font-size: 20px;
+color: white;
+text-shadow: 1px 1px 1px gray;
+text-align: center;
+display: block;
+}
+</style>
+    <div id="map"></div>
+	
+<div class="map-overlay top">
+<div class="map-overlay-inner">
+<h2 style="color:white">Tolt Pipeline to Snoqualmie River</h2>
+<h4 style="color:white">🚲 91.6 miles</h4>
+</div>
+</div>
+    <script type="text/javascript">
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibGx0dGRheSIsImEiOiJja2RrbGhwazUwY2EzMnl0MnFxdXI1MnI5In0.3mcdJCpgz-15EqRGGnxEoA";
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: `mapbox://styles/llttday/ckmb2idf39c2017tfyrsfoyyk`,
+			pitch: 60,
+            bounds: [[-122.31277, 47.5223, ], [-121.79196, 47.75838]],
+			fitboundsoptions: {
+				padding: {top: 0, bottom: 25, left: 25, right: 25},
+				offset: [0,-200]
+}
+            });
+        map.on('load', function () {
+            map.addSource('routes', {
+            	type: 'geojson',
+				data: 'tolt.geojson'
+            });
+            map.addLayer({
+            'id': 'route1',
+			'type': 'line',
+			'source': 'routes',
+			'layout': {
+			'line-join': 'round',
+			'line-cap': 'round'
+			},
+			'paint': {
+			'line-color': '#FE4D02',
+			'line-width': 3
+			}
+			})});</script>
+</body></html>
