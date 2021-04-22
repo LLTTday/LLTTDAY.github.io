@@ -65,7 +65,7 @@ display: block;
             container: 'map',
             style: `mapbox://styles/llttday/ckmb2idf39c2017tfyrsfoyyk`,
 			pitch: 60,
-            bounds: [[-122.66259, 37.79269, ], [-122.22608, 38.28203]],
+            bounds: [[-122.43377, 47.49544, ], [-122.23548, 47.73629]],
 			fitboundsoptions: {
 				padding: {top: 0, bottom: 25, left: 25, right: 25},
 				offset: [0,-200]
@@ -74,7 +74,7 @@ display: block;
         map.on('load', function () {
             map.addSource('routes', {
             	type: 'geojson',
-				data: 'northbay.geojson'
+				data: 'seattle.geojson'
             });
             map.addLayer({
             'id': 'route1',
