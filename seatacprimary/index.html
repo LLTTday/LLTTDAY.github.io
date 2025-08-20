@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeaTac Primary Election Results</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .control-panel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            max-width: 300px;
+        }
+        
+        .race-selector {
+            margin-bottom: 15px;
+        }
+        
+        .race-selector label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .race-selector select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .candidate-selector {
+            margin-bottom: 15px;
+        }
+        
+        .candidate-selector label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .candidate-selector select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .legend {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        
+        .legend-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 15px;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+        }
+        
+        .info-box {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="control-panel">
+        <div class="race-selector">
+            <label for="race-select">Race:</label>
+            <select id="race-select">
+                <option value="winner">Who Won (Top 2)</option>
+                <option value="seatac-council" selected>SeaTac Council Position 6</option>
+                <option value="king-county-exec">King County Executive</option>
+                <option value="metro-council">Metro Council District 5</option>
+            </select>
+        </div>
+        
+        <div class="winner-race-selector" id="winner-race-selector" style="display: none;">
+            <label for="winner-race-select">Winner View Race:</label>
+            <select id="winner-race-select">
+                <option value="seatac-council" selected>SeaTac Council Position 6</option>
+                <option value="king-county-exec">King County Executive</option>
+                <option value="metro-council">Metro Council District 5</option>
+            </select>
+        </div>
+        
+        <div class="candidate-selector" id="candidate-selector" style="display: none;">
+            <label for="candidate-select">Candidate:</label>
+            <select id="candidate-select">
+            </select>
+        </div>
+        
+        <div class="legend" id="legend">
+            <div class="legend-title">Legend</div>
+        </div>
+        
+        <div class="info-box" id="info-box">
+            Click on a precinct to see detailed results
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/d3@7"></script>
+    <script>
+        let map;
+        let geojsonLayer;
+        let electionData = {};
+        let geoData;
+        
+        // Race configurations
+        const races = {
+            'seatac-council': {
+                name: 'SeaTac Council Position 6',
+                candidates: ['Bedria Abdullahi', 'Marianne West', 'Michael Sanford']
+            },
+            'king-county-exec': {
+                name: 'King County Executive', 
+                candidates: ['Amiya Ingram', 'Bill Hirt', 'Claudia Balducci', 'Derek Chartrand', 'Don L Rivers', 'Girmay Zahilay', 'John Wilson', 'Rebecca Williamson']
+            },
+            'metro-council': {
+                name: 'Metro Council District 5',
+                candidates: ['Ahmad Corner', 'Angela Henderson', 'Kim-Khanh Van', 'Peter Kwon', 'Ryan McIrvin', 'Steffanie Fain']
+            }
+        };
+        
+        // Initialize map
+        function initMap() {
+            map = L.map('map');
+            
+            // Use CartoDB Positron (light, desaturated basemap similar to Toner Lite)
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '©OpenStreetMap, ©CartoDB',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
+        }
+        
+        // Center map on data after loading
+        function centerMapOnData() {
+            if (geoData && geojsonLayer) {
+                map.fitBounds(geojsonLayer.getBounds(), {padding: [20, 20]});
+            }
+        }
+        
+        // Load and parse CSV data
+        function loadElectionData() {
+            return d3.csv('seatac primary.csv').then(data => {
+                data.forEach(row => {
+                    const precinct = row.Precinct;
+                    electionData[precinct] = {
+                        'Bedria Abdullahi': +row['Bedria Abdullahi'],
+                        'Marianne West': +row['Marianne West'],
+                        'Michael Sanford': +row['Michael Sanford'],
+                        'Amiya Ingram': +row['Amiya Ingram'],
+                        'Bill Hirt': +row['Bill Hirt'],
+                        'Claudia Balducci': +row['Claudia Balducci'],
+                        'Derek Chartrand': +row['Derek Chartrand'],
+                        'Don L Rivers': +row['Don L Rivers'],
+                        'Girmay Zahilay': +row['Girmay Zahilay'],
+                        'John Wilson': +row['John Wilson'],
+                        'Rebecca Williamson': +row['Rebecca Williamson'],
+                        'Ahmad Corner': +row['Ahmad Corner'],
+                        'Angela Henderson': +row['Angela Henderson'],
+                        'Kim-Khanh Van': +row['Kim-Khanh Van'],
+                        'Peter Kwon': +row['Peter Kwon'],
+                        'Ryan McIrvin': +row['Ryan McIrvin'],
+                        'Steffanie Fain': +row['Steffanie Fain']
+                    };
+                });
+            });
+        }
+        
+        // Load GeoJSON data
+        function loadGeoData() {
+            return d3.json('seatac25.geojson').then(data => {
+                geoData = data;
+            });
+        }
+        
+        // Calculate vote percentage for a candidate in a precinct
+        function getVotePercentage(precinct, candidate, raceType) {
+            const data = electionData[precinct];
+            if (!data) return 0;
+            
+            const candidates = races[raceType].candidates;
+            const totalVotes = candidates.reduce((sum, c) => sum + (data[c] || 0), 0);
+            
+            if (totalVotes === 0) return 0;
+            return ((data[candidate] || 0) / totalVotes) * 100;
+        }
+        
+        // Get all candidates sorted for a precinct in a race
+        function getAllCandidates(precinct, raceType) {
+            const data = electionData[precinct];
+            if (!data) return [];
+            
+            const candidates = races[raceType].candidates;
+            const results = candidates.map(candidate => ({
+                name: candidate,
+                votes: data[candidate] || 0,
+                percentage: getVotePercentage(precinct, candidate, raceType)
+            })).sort((a, b) => b.votes - a.votes);
+            
+            return results;
+        }
+        
+        // Get top 2 candidates for a precinct in a race
+        function getTopTwoCandidates(precinct, raceType) {
+            return getAllCandidates(precinct, raceType).slice(0, 2);
+        }
+        
+        // Calculate margin of victory/loss for a candidate
+        function getMarginOfVictory(precinct, candidate, raceType) {
+            const results = getAllCandidates(precinct, raceType);
+            const candidateResult = results.find(r => r.name === candidate);
+            if (!candidateResult || results.length < 2) return 0;
+            
+            const winner = results[0];
+            const secondPlace = results[1];
+            
+            if (winner.name === candidate) {
+                // Candidate is winning - positive margin
+                return candidateResult.percentage - secondPlace.percentage;
+            } else {
+                // Candidate is losing - negative margin
+                return candidateResult.percentage - winner.percentage;
+            }
+        }
+        
+        // Get margin for winner in a precinct
+        function getWinnerMargin(precinct, raceType) {
+            const results = getAllCandidates(precinct, raceType);
+            if (results.length < 2) return 0;
+            return results[0].percentage - results[1].percentage;
+        }
+        
+        // Get winner for a precinct (candidate with most votes)
+        function getWinner(precinct, raceType) {
+            const topTwo = getTopTwoCandidates(precinct, raceType);
+            return topTwo.length > 0 ? topTwo[0] : null;
+        }
+        
+        // Color scale for slate blue intensity based on margin of victory
+        function getColor(percentage, margin, maxMargin, isWinning = true) {
+            if (margin === 0) return '#ffffff'; // White for ties
+            
+            const marginIntensity = Math.abs(margin) / maxMargin;
+            
+            if (isWinning) {
+                // Slate blue color range for winning
+                const r = Math.floor(106 + (255 - 106) * (1 - marginIntensity));
+                const g = Math.floor(90 + (255 - 90) * (1 - marginIntensity));
+                const b = Math.floor(205 + (255 - 205) * (1 - marginIntensity));
+                return `rgb(${r}, ${g}, ${b})`;
+            } else {
+                // Gray scale for losing - darker gray for bigger losses
+                const grayValue = Math.floor(200 - (200 - 100) * marginIntensity);
+                return `rgb(${grayValue}, ${grayValue}, ${grayValue})`;
+            }
+        }
+        
+        // Get base color for winners (before margin adjustment)
+        function getBaseWinnerColor(candidate, raceType) {
+            const candidates = races[raceType].candidates;
+            const colors = [
+                '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', 
+                '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf'
+            ];
+            const index = candidates.indexOf(candidate);
+            return colors[index % colors.length];
+        }
+        
+        // Get winner color with margin-based intensity
+        function getWinnerColor(candidate, raceType, precinct, maxMargin) {
+            const baseColor = getBaseWinnerColor(candidate, raceType);
+            const margin = getWinnerMargin(precinct, raceType);
+            
+            if (margin === 0) return '#ffffff'; // White for ties
+            
+            // Parse base color and adjust intensity based on margin
+            const hex = baseColor.replace('#', '');
+            const r = parseInt(hex.substr(0, 2), 16);
+            const g = parseInt(hex.substr(2, 2), 16);
+            const b = parseInt(hex.substr(4, 2), 16);
+            
+            const marginIntensity = margin / maxMargin;
+            const adjustedR = Math.floor(r + (255 - r) * (1 - marginIntensity));
+            const adjustedG = Math.floor(g + (255 - g) * (1 - marginIntensity));
+            const adjustedB = Math.floor(b + (255 - b) * (1 - marginIntensity));
+            
+            return `rgb(${adjustedR}, ${adjustedG}, ${adjustedB})`;
+        }
+        
+        // Style function for choropleth
+        function styleFeature(feature, mode, candidate = null, raceType = null) {
+            const precinct = feature.properties.NAME;
+            
+            if (mode === 'winner') {
+                const winner = getWinner(precinct, raceType);
+                
+                // Calculate max margin across all precincts for this race
+                let maxMargin = 0;
+                if (geoData && geoData.features) {
+                    geoData.features.forEach(f => {
+                        const p = f.properties.NAME;
+                        const m = getWinnerMargin(p, raceType);
+                        if (m > maxMargin) maxMargin = m;
+                    });
+                }
+                
+                return {
+                    fillColor: winner ? getWinnerColor(winner.name, raceType, precinct, maxMargin || 1) : '#ccc',
+                    weight: 1,
+                    opacity: 1,
+                    color: 'white',
+                    fillOpacity: 0.7
+                };
+            } else {
+                // Choropleth for specific candidate - use margin of victory/loss for intensity
+                const percentage = getVotePercentage(precinct, candidate, raceType);
+                const margin = getMarginOfVictory(precinct, candidate, raceType);
+                const isWinning = margin > 0;
+                
+                // Calculate max absolute margin across all precincts for this candidate
+                let maxMargin = 0;
+                if (geoData && geoData.features) {
+                    geoData.features.forEach(f => {
+                        const p = f.properties.NAME;
+                        const m = Math.abs(getMarginOfVictory(p, candidate, raceType));
+                        if (m > maxMargin) maxMargin = m;
+                    });
+                }
+                
+                return {
+                    fillColor: percentage > 0 ? getColor(percentage, margin, maxMargin || 1, isWinning) : '#ccc',
+                    weight: 1,
+                    opacity: 1,
+                    color: 'white',
+                    fillOpacity: 0.7
+                };
+            }
+        }
+        
+        // Create popup content
+        function createPopupContent(feature, mode, raceType = null) {
+            const precinct = feature.properties.NAME;
+            const data = electionData[precinct];
+            
+            if (!data) return `<b>${precinct}</b><br>No data available`;
+            
+            let content = `<b>${precinct}</b><br><br>`;
+            
+            if (mode === 'winner') {
+                // Show all results for the selected race in winner mode
+                const results = getAllCandidates(precinct, raceType);
+                content += `<b>${races[raceType].name}:</b><br>`;
+                results.forEach((candidate, i) => {
+                    const style = i < 2 ? '' : 'style="color: #666;"';
+                    content += `<span ${style}>${candidate.name}: ${candidate.votes} votes (${candidate.percentage.toFixed(1)}%)</span><br>`;
+                });
+                
+                // Add other races in gray
+                Object.keys(races).forEach(race => {
+                    if (race !== raceType) {
+                        const otherResults = getAllCandidates(precinct, race);
+                        content += `<br><span style="color: #888;"><b>${races[race].name}:</b></span><br>`;
+                        otherResults.forEach(candidate => {
+                            content += `<span style="color: #888;">${candidate.name}: ${candidate.votes} votes (${candidate.percentage.toFixed(1)}%)</span><br>`;
+                        });
+                    }
+                });
+                
+            } else {
+                // Show all results for specific race
+                const results = getAllCandidates(precinct, raceType);
+                
+                content += `<b>${races[raceType].name}:</b><br>`;
+                results.forEach((candidate, i) => {
+                    const style = i < 2 ? '' : 'style="color: #666;"';
+                    content += `<span ${style}>${candidate.name}: ${candidate.votes} votes (${candidate.percentage.toFixed(1)}%)</span><br>`;
+                });
+                
+                // Add other races in gray
+                Object.keys(races).forEach(race => {
+                    if (race !== raceType) {
+                        const otherResults = getAllCandidates(precinct, race);
+                        content += `<br><span style="color: #888;"><b>${races[race].name}:</b></span><br>`;
+                        otherResults.forEach(candidate => {
+                            content += `<span style="color: #888;">${candidate.name}: ${candidate.votes} votes (${candidate.percentage.toFixed(1)}%)</span><br>`;
+                        });
+                    }
+                });
+            }
+            
+            return content;
+        }
+        
+        // Update map display
+        function updateMap() {
+            const raceSelect = document.getElementById('race-select');
+            const candidateSelect = document.getElementById('candidate-select');
+            const candidateDiv = document.getElementById('candidate-selector');
+            const winnerRaceSelect = document.getElementById('winner-race-select');
+            const winnerRaceDiv = document.getElementById('winner-race-selector');
+            
+            const selectedRace = raceSelect.value;
+            
+            if (selectedRace === 'winner') {
+                candidateDiv.style.display = 'none';
+                winnerRaceDiv.style.display = 'block';
+                
+                const winnerRace = winnerRaceSelect.value;
+                
+                if (geojsonLayer) map.removeLayer(geojsonLayer);
+                
+                geojsonLayer = L.geoJSON(geoData, {
+                    style: (feature) => styleFeature(feature, 'winner', null, winnerRace),
+                    onEachFeature: (feature, layer) => {
+                        layer.bindPopup(createPopupContent(feature, 'winner', winnerRace));
+                    }
+                }).addTo(map);
+                
+                centerMapOnData();
+                updateLegend('winner', null, winnerRace);
+                
+            } else {
+                candidateDiv.style.display = 'block';
+                winnerRaceDiv.style.display = 'none';
+                
+                // Update candidate dropdown
+                const candidates = races[selectedRace].candidates;
+                candidateSelect.innerHTML = '';
+                candidates.forEach(candidate => {
+                    const option = document.createElement('option');
+                    option.value = candidate;
+                    option.textContent = candidate;
+                    candidateSelect.appendChild(option);
+                });
+                
+                // Re-add event listener after recreating dropdown
+                candidateSelect.removeEventListener('change', updateMap);
+                candidateSelect.addEventListener('change', updateMap);
+                
+                // Get the selected candidate (first one if none selected)
+                const selectedCandidate = candidateSelect.value || candidates[0];
+                
+                if (geojsonLayer) map.removeLayer(geojsonLayer);
+                
+                geojsonLayer = L.geoJSON(geoData, {
+                    style: (feature) => styleFeature(feature, 'candidate', selectedCandidate, selectedRace),
+                    onEachFeature: (feature, layer) => {
+                        layer.bindPopup(createPopupContent(feature, 'candidate', selectedRace));
+                    }
+                }).addTo(map);
+                
+                centerMapOnData();
+                updateLegend('candidate', selectedCandidate, selectedRace);
+            }
+        }
+        
+        // Create continuous gradient legend
+        function createGradientLegend(candidate, raceType, maxMargin) {
+            const gradientId = `gradient-${candidate.replace(/\s+/g, '')}-${raceType}`;
+            
+            // Create SVG gradient
+            const svg = `
+                <svg width="100%" height="30" style="margin: 5px 0;">
+                    <defs>
+                        <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:${getColor(0, -maxMargin, maxMargin, false)};stop-opacity:1" />
+                            <stop offset="25%" style="stop-color:${getColor(0, -maxMargin/2, maxMargin, false)};stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="75%" style="stop-color:${getColor(0, maxMargin/2, maxMargin, true)};stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:${getColor(0, maxMargin, maxMargin, true)};stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100%" height="20" fill="url(#${gradientId})" stroke="#ccc" stroke-width="1"/>
+                </svg>
+                <div style="display: flex; justify-content: space-between; font-size: 10px; color: #666; margin-top: 2px;">
+                    <span>-${maxMargin.toFixed(1)}%</span>
+                    <span>0%</span>
+                    <span>+${maxMargin.toFixed(1)}%</span>
+                </div>
+            `;
+            
+            return svg;
+        }
+
+        // Update legend
+        function updateLegend(mode, candidate = null, raceType = null) {
+            const legend = document.getElementById('legend');
+            
+            if (mode === 'winner') {
+                // Calculate max margin for winner view
+                let maxMargin = 0;
+                if (geoData && geoData.features) {
+                    geoData.features.forEach(f => {
+                        const p = f.properties.NAME;
+                        const m = getWinnerMargin(p, raceType);
+                        if (m > maxMargin) maxMargin = m;
+                    });
+                }
+                
+                legend.innerHTML = `
+                    <div class="legend-title">${races[raceType].name} Winners</div>
+                    ${races[raceType].candidates.map(candidate => 
+                        `<div class="legend-item">
+                            <div class="legend-color" style="background-color: ${getBaseWinnerColor(candidate, raceType)}"></div>
+                            ${candidate}
+                        </div>`
+                    ).join('')}
+                    <div style="margin-top: 10px;">
+                        <div style="font-size: 11px; color: #666; margin-bottom: 5px;">Margin of Victory:</div>
+                        <svg width="100%" height="30">
+                            <defs>
+                                <linearGradient id="winner-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#000000;stop-opacity:0.3" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="100%" height="20" fill="url(#winner-gradient)" stroke="#ccc" stroke-width="1"/>
+                        </svg>
+                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: #666; margin-top: 2px;">
+                            <span>Tied</span>
+                            <span>${maxMargin.toFixed(1)}%+ margin</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Calculate max absolute margin for this candidate across all precincts
+                let maxMargin = 0;
+                if (geoData && geoData.features) {
+                    geoData.features.forEach(f => {
+                        const p = f.properties.NAME;
+                        const m = Math.abs(getMarginOfVictory(p, candidate, raceType));
+                        if (m > maxMargin) maxMargin = m;
+                    });
+                }
+                
+                legend.innerHTML = `
+                    <div class="legend-title">${candidate}</div>
+                    <div style="margin-top: 10px;">
+                        ${createGradientLegend(candidate, raceType, maxMargin)}
+                        <div style="font-size: 10px; color: #666; text-align: center; margin-top: 5px;">
+                            Margin (Losing ← Tied → Winning)
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Event listeners
+        document.getElementById('race-select').addEventListener('change', updateMap);
+        document.getElementById('winner-race-select').addEventListener('change', updateMap);
+        
+        // Note: candidate-select event listener is added dynamically in updateMap function
+        
+        // Initialize application
+        async function init() {
+            initMap();
+            await Promise.all([loadElectionData(), loadGeoData()]);
+            updateMap();
+        }
+        
+        init();
+    </script>
+</body>
+</html>
