@@ -101,28 +101,18 @@
 <body>
     <div id="map"></div>
     <div class="control-panel">
-        <div class="race-selector">
-            <label for="race-select">Race:</label>
-            <select id="race-select">
-                <option value="winner">Who Won (Top 2)</option>
+        <div class="contest-selector">
+            <label for="contest-select">Contest:</label>
+            <select id="contest-select">
                 <option value="seatac-council" selected>SeaTac Council Position 6</option>
                 <option value="king-county-exec">King County Executive</option>
                 <option value="metro-council">Metro Council District 5</option>
             </select>
         </div>
         
-        <div class="winner-race-selector" id="winner-race-selector" style="display: none;">
-            <label for="winner-race-select">Winner View Race:</label>
-            <select id="winner-race-select">
-                <option value="seatac-council" selected>SeaTac Council Position 6</option>
-                <option value="king-county-exec">King County Executive</option>
-                <option value="metro-council">Metro Council District 5</option>
-            </select>
-        </div>
-        
-        <div class="candidate-selector" id="candidate-selector" style="display: none;">
-            <label for="candidate-select">Candidate:</label>
-            <select id="candidate-select">
+        <div class="map-selector">
+            <label for="map-select">Map:</label>
+            <select id="map-select">
             </select>
         </div>
         
@@ -431,67 +421,82 @@
             return content;
         }
         
-        // Update map display
-        function updateMap() {
-            const raceSelect = document.getElementById('race-select');
-            const candidateSelect = document.getElementById('candidate-select');
-            const candidateDiv = document.getElementById('candidate-selector');
-            const winnerRaceSelect = document.getElementById('winner-race-select');
-            const winnerRaceDiv = document.getElementById('winner-race-selector');
+        // Update map options based on selected contest
+        function updateMapOptions() {
+            const contestSelect = document.getElementById('contest-select');
+            const mapSelect = document.getElementById('map-select');
+            const selectedContest = contestSelect.value;
             
-            const selectedRace = raceSelect.value;
+            // Store current selection
+            const currentSelection = mapSelect.value;
             
-            if (selectedRace === 'winner') {
-                candidateDiv.style.display = 'none';
-                winnerRaceDiv.style.display = 'block';
-                
-                const winnerRace = winnerRaceSelect.value;
-                
-                if (geojsonLayer) map.removeLayer(geojsonLayer);
-                
-                geojsonLayer = L.geoJSON(geoData, {
-                    style: (feature) => styleFeature(feature, 'winner', null, winnerRace),
-                    onEachFeature: (feature, layer) => {
-                        layer.bindPopup(createPopupContent(feature, 'winner', winnerRace));
-                    }
-                }).addTo(map);
-                
-                centerMapOnData();
-                updateLegend('winner', null, winnerRace);
-                
+            // Clear and rebuild map options
+            mapSelect.innerHTML = '';
+            
+            // Add "Who Won" option
+            const winnerOption = document.createElement('option');
+            winnerOption.value = 'winner';
+            winnerOption.textContent = 'Who Won (Top 2)';
+            mapSelect.appendChild(winnerOption);
+            
+            // Add candidate options
+            const candidates = races[selectedContest].candidates;
+            candidates.forEach(candidate => {
+                const option = document.createElement('option');
+                option.value = candidate;
+                option.textContent = candidate;
+                mapSelect.appendChild(option);
+            });
+            
+            // Restore selection if it exists, otherwise default to "Who Won"
+            if (currentSelection && (currentSelection === 'winner' || candidates.includes(currentSelection))) {
+                mapSelect.value = currentSelection;
             } else {
-                candidateDiv.style.display = 'block';
-                winnerRaceDiv.style.display = 'none';
-                
-                // Update candidate dropdown
-                const candidates = races[selectedRace].candidates;
-                candidateSelect.innerHTML = '';
-                candidates.forEach(candidate => {
-                    const option = document.createElement('option');
-                    option.value = candidate;
-                    option.textContent = candidate;
-                    candidateSelect.appendChild(option);
-                });
-                
-                // Re-add event listener after recreating dropdown
-                candidateSelect.removeEventListener('change', updateMap);
-                candidateSelect.addEventListener('change', updateMap);
-                
-                // Get the selected candidate (first one if none selected)
-                const selectedCandidate = candidateSelect.value || candidates[0];
-                
-                if (geojsonLayer) map.removeLayer(geojsonLayer);
-                
+                mapSelect.value = 'winner';
+            }
+            
+            updateMapDisplay();
+        }
+        
+        // Update map display
+        function updateMapDisplay() {
+            console.log('updateMapDisplay() called');
+            const contestSelect = document.getElementById('contest-select');
+            const mapSelect = document.getElementById('map-select');
+            
+            const selectedContest = contestSelect.value;
+            const selectedMap = mapSelect.value;
+            console.log('Selected contest:', selectedContest, 'Selected map:', selectedMap);
+            
+            if (geojsonLayer) {
+                console.log('Removing existing layer');
+                map.removeLayer(geojsonLayer);
+            }
+            
+            if (selectedMap === 'winner') {
+                console.log('Creating winner layer for contest:', selectedContest);
                 geojsonLayer = L.geoJSON(geoData, {
-                    style: (feature) => styleFeature(feature, 'candidate', selectedCandidate, selectedRace),
+                    style: (feature) => styleFeature(feature, 'winner', null, selectedContest),
                     onEachFeature: (feature, layer) => {
-                        layer.bindPopup(createPopupContent(feature, 'candidate', selectedRace));
+                        layer.bindPopup(createPopupContent(feature, 'winner', selectedContest));
                     }
                 }).addTo(map);
                 
-                centerMapOnData();
-                updateLegend('candidate', selectedCandidate, selectedRace);
+                updateLegend('winner', null, selectedContest);
+            } else {
+                console.log('Creating candidate layer for:', selectedMap, 'in contest:', selectedContest);
+                geojsonLayer = L.geoJSON(geoData, {
+                    style: (feature) => styleFeature(feature, 'candidate', selectedMap, selectedContest),
+                    onEachFeature: (feature, layer) => {
+                        layer.bindPopup(createPopupContent(feature, 'candidate', selectedContest));
+                    }
+                }).addTo(map);
+                
+                updateLegend('candidate', selectedMap, selectedContest);
             }
+            
+            centerMapOnData();
+            console.log('Map update complete');
         }
         
         // Create continuous gradient legend
@@ -586,16 +591,14 @@
         }
         
         // Event listeners
-        document.getElementById('race-select').addEventListener('change', updateMap);
-        document.getElementById('winner-race-select').addEventListener('change', updateMap);
-        
-        // Note: candidate-select event listener is added dynamically in updateMap function
+        document.getElementById('contest-select').addEventListener('change', updateMapOptions);
+        document.getElementById('map-select').addEventListener('change', updateMapDisplay);
         
         // Initialize application
         async function init() {
             initMap();
             await Promise.all([loadElectionData(), loadGeoData()]);
-            updateMap();
+            updateMapOptions();
         }
         
         init();
