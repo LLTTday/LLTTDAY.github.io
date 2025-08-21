@@ -107,6 +107,8 @@
                 <option value="seatac-council" selected>SeaTac Council Position 6</option>
                 <option value="king-county-exec">King County Executive</option>
                 <option value="metro-council">Metro Council District 5</option>
+                <option value="king-county-prop1">King County Proposition 1</option>
+                <option value="state-house-33">State House 33rd District</option>
             </select>
         </div>
         
@@ -146,6 +148,14 @@
             'metro-council': {
                 name: 'Metro Council District 5',
                 candidates: ['Ahmad Corner', 'Angela Henderson', 'Kim-Khanh Van', 'Peter Kwon', 'Ryan McIrvin', 'Steffanie Fain']
+            },
+            'king-county-prop1': {
+                name: 'King County Proposition 1',
+                candidates: ['KCP1 Approved', 'KCP2 Rejected']
+            },
+            'state-house-33': {
+                name: 'State House 33rd District',
+                candidates: ['Darryl Jones', 'Edwin Obras', 'Kevin Schilling']
             }
         };
         
@@ -170,8 +180,12 @@
         
         // Load and parse CSV data
         function loadElectionData() {
-            return d3.csv('seatac primary.csv').then(data => {
-                data.forEach(row => {
+            return Promise.all([
+                d3.csv('seatac primary.csv'),
+                d3.csv('seatacprimary2.csv')
+            ]).then(([data1, data2]) => {
+                // Process first CSV
+                data1.forEach(row => {
                     const precinct = row.Precinct;
                     electionData[precinct] = {
                         'Bedria Abdullahi': +row['Bedria Abdullahi'],
@@ -192,6 +206,19 @@
                         'Ryan McIrvin': +row['Ryan McIrvin'],
                         'Steffanie Fain': +row['Steffanie Fain']
                     };
+                });
+                
+                // Process second CSV and merge data
+                data2.forEach(row => {
+                    const precinct = row.CounterType;
+                    if (electionData[precinct]) {
+                        // Add new race data to existing precinct
+                        electionData[precinct]['KCP1 Approved'] = +row['KCP1 Approved'];
+                        electionData[precinct]['KCP2 Rejected'] = +row['KCP2 Rejected'];
+                        electionData[precinct]['Darryl Jones'] = +row['Darryl Jones'];
+                        electionData[precinct]['Edwin Obras'] = +row['Edwin Obras'];
+                        electionData[precinct]['Kevin Schilling'] = +row['Kevin Schilling'];
+                    }
                 });
             });
         }
