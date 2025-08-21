@@ -151,7 +151,7 @@
             },
             'king-county-prop1': {
                 name: 'King County Proposition 1',
-                candidates: ['KCP1 Approved', 'KCP2 Rejected']
+                candidates: ['Approved', 'Rejected']
             },
             'state-house-33': {
                 name: 'State House 33rd District',
@@ -213,8 +213,8 @@
                     const precinct = row.CounterType;
                     if (electionData[precinct]) {
                         // Add new race data to existing precinct
-                        electionData[precinct]['KCP1 Approved'] = +row['KCP1 Approved'];
-                        electionData[precinct]['KCP2 Rejected'] = +row['KCP2 Rejected'];
+                        electionData[precinct]['Approved'] = +row['KCP1 Approved'];
+                        electionData[precinct]['Rejected'] = +row['KCP2 Rejected'];
                         electionData[precinct]['Darryl Jones'] = +row['Darryl Jones'];
                         electionData[precinct]['Edwin Obras'] = +row['Edwin Obras'];
                         electionData[precinct]['Kevin Schilling'] = +row['Kevin Schilling'];
